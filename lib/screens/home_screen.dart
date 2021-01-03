@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_ui/models/restaurant.dart';
+import 'package:flutter_food_delivery_ui/screens/cart_screen.dart';
 import 'package:flutter_food_delivery_ui/screens/restaurant_screen.dart';
 import 'package:flutter_food_delivery_ui/widgets/rating_stars.dart';
 import 'package:flutter_food_delivery_ui/widgets/recent_orders.dart';
@@ -100,14 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.account_circle),
-          iconSize: 30,
-          onPressed: () {},
-        ),
+            icon: Icon(Icons.account_circle), iconSize: 30, onPressed: () {}),
         title: Text("Food Delivery"),
         actions: <Widget>[
           FlatButton(
-            onPressed: null,
+            onPressed: () => Navigator.push(
+                context, MaterialPageRoute(builder: (_) => CartScreen())),
             child: Text(
               'Cart (${currentUser.cart.length})',
               style: TextStyle(
